@@ -1,6 +1,6 @@
 package com.candraibra.liveball;
 
-public interface OnBottomReachedListener {
+interface OnBottomReachedListener {
 
     void onBottomReached(int position);
 

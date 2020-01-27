@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    Adapter adapter;
+    private Adapter adapter;
     private List<String> strings = new ArrayList<>();
 
     @Override
