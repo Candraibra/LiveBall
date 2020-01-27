@@ -40,7 +40,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         if (position == strings.size() - 1) {
-
             onBottomReachedListener.onBottomReached(position);
         }
 
@@ -54,12 +53,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-
         TextView textView;
-
         ViewHolder(View itemView) {
             super(itemView);
-
             textView = itemView.findViewById(R.id.text);
         }
     }
