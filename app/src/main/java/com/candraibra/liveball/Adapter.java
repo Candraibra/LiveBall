@@ -42,7 +42,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         if (position == strings.size() - 1) {
 
             onBottomReachedListener.onBottomReached(position);
-
         }
 
         holder.textView.setText(strings.get(position));
