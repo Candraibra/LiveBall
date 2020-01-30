@@ -1,7 +1,6 @@
 package com.candraibra.liveball;
 
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +52,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
+
         ViewHolder(View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.text);
