@@ -13,24 +13,32 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private Adapter adapter;
     private List<String> strings = new ArrayList<>();
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        recyclerView = findViewById(R.id.recyclerView);
         addData(strings);
         adapter = new Adapter(strings);
         initRv();
     }
 
     private void initRv() {
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
         adapter.setOnBottomReachedListener(new OnBottomReachedListener() {
             @Override
             public void onBottomReached(int position) {
-                Log.d("loadMore", "loadMore");
+                recyclerView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.d("loadMore", String.valueOf(adapter.getItemCount()));
+                        addData(strings);
+                        adapter.notifyDataSetChanged();
+                    }
+                });
             }
         });
     }
@@ -39,7 +47,5 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 50; i++) {
             stringsList.add("# " + (i + 1));
         }
-
     }
-
 }

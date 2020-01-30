@@ -1,6 +1,7 @@
 package com.candraibra.liveball;
 
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,13 +38,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        if (position == strings.size() - 1) {
-            onBottomReachedListener.onBottomReached(position);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int i) {
+        if (i == strings.size() - 1) {
+            onBottomReachedListener.onBottomReached(i);
         }
-
-        holder.textView.setText(strings.get(position));
+        holder.textView.setText(strings.get(i));
 
     }
 
